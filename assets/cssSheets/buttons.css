@@ -1,0 +1,42 @@
+/* 
+	JavaFX layout idea by user:ViictorP
+*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+#closeBtn{
+    -fx-background-radius: 150;
+    -fx-pref-width: 37;
+    -fx-pref-height: 37;
+    -fx-background-color: #00acfa;
+}
+#closeBtn:hover {
+    -fx-border-radius: 150;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+}
+#startBtn {
+    -fx-background-radius: 150;
+    -fx-pref-width: 37;
+    -fx-pref-height: 37;
+    -fx-background-color: #00acfa;
+}
+#startBtn:hover {
+    -fx-border-radius: 150;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+}
+
+#statsBtn {
+	-fx-font-family: 'Bebas Neue', cursive;
+	-fx-text-fill: White;
+	
+    -fx-background-color: #00B3FF;
+
+	-fx-alignment: center-left;
+    -fx-font-size: 15;
+}
+
+#statsBtn:hover {
+    -fx-border-color: #000000;
+    -fx-border-width: 1px;
+}
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marceloluiz.Pokedex.gui.MainViewController">
+	<content>
+		<VBox alignment="TOP_CENTER" prefHeight="313.0" prefWidth="514.0" spacing="10.0">
+			<children>
+				<MenuBar>
+					<menus>
+						<Menu mnemonicParsing="false" text="Menu">
+							<items>
+								<MenuItem fx:id="menuItemPokedex" mnemonicParsing="false" onAction="#onMenuItemPokedexAction" text="Pokedex" />
+								<MenuItem fx:id="menuItemTeamBuilder" mnemonicParsing="false" onAction="#onMenuItemDTeamBuilderAction" text="Team Builder" />
+							</items>
+						</Menu>
+						<Menu mnemonicParsing="false" text="Help">
+							<items>
+								<MenuItem fx:id="menuItemAbout" mnemonicParsing="false" onAction="#onMenuItemAboutAction" text="About" />
+							</items>
+						</Menu>
+					</menus>
+				</MenuBar>
+            <ImageView fx:id="logoImg" fitHeight="155.0" fitWidth="213.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <image>
+                  <Image url="file:assets/img/pokemonPokeball.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="teamBuilderBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtnTeamBuilderAction" text="Team Builder">
+               <VBox.margin>
+                  <Insets top="60.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="pokedexBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtnPokedexAction" text="Pokedex" />
+            <Button fx:id="closeBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtnCloseAction" text="Close" />
+			</children>
+		</VBox>
+	</content>
+</ScrollPane>
