@@ -1,9 +1,6 @@
 package com.marceloluiz.Pokedex.services;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -16,18 +13,16 @@ import com.marceloluiz.Pokedex.models.PokeStats;
 import com.marceloluiz.Pokedex.models.PokeWeakness;
 import com.marceloluiz.Pokedex.models.entities.PokemonPokedex;
 import com.marceloluiz.Pokedex.models.enums.PokeType;
+import lombok.Getter;
 
 public class PokemonPokedexDeserializer {
-	private String json;
+	@Getter
+    private String json;
 	private ObjectMapper mapper;
 	private JsonNode jsonNode;
 	private APIConsumption apiConsumption;
-	
-	public String getJson() {
-		return json;
-	}
 
-	public void setJson(int i) {
+    public void setJson(int i) {
 		this.json = "https://pokeapi.co/api/v2/pokemon/" + i;
 	}
 	
@@ -54,9 +49,7 @@ public class PokemonPokedexDeserializer {
 		Set<PokeType> weaknesses = new HashSet<>();
 		
 		getTypes().forEach(t -> {
-			for(PokeType weak : t.weak) {
-				weaknesses.add(weak);
-			}
+            Collections.addAll(weaknesses, t.weak);
 		});	
 		
 		return (getTypes().size() > 1) ? PokeWeakness.allWeaknesses(getTypes()) : weaknesses;
@@ -103,7 +96,7 @@ public class PokemonPokedexDeserializer {
 		String baseJson = apiConsumption.gettingData(getJson());
 		
 		convert = new ConvertData();
-		data = convert.getData(baseJson, PokeData.class);
+		data = convert.	getData(baseJson, PokeData.class);
 		
 		urlList.add(data);
 		
@@ -122,7 +115,7 @@ public class PokemonPokedexDeserializer {
 				find = "/type/" + i + "/";
 				found = typeList.contains(find);
 				
-				if(found == true) {
+				if(found) {
 					type.add(i);
 				}
 				

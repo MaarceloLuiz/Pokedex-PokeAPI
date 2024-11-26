@@ -201,8 +201,8 @@ public class PokedexController implements Initializable{
 	}
 	
 	private void pokemonLabelUpdate() {
-		Double height = Double.parseDouble(pokemon.getHeight()) / 10;
-		Double weight = Double.parseDouble(pokemon.getWeight()) / 10;
+		double height = Double.parseDouble(pokemon.getHeight()) / 10;
+		double weight = Double.parseDouble(pokemon.getWeight()) / 10;
 		
 		nameLabel.setText(pokemon.getName());
 		numberLabel.setText("N° " + Integer.toString(pokemon.getId()));
@@ -211,8 +211,8 @@ public class PokedexController implements Initializable{
 		}
 		regionLabel.setText(pokemon.getRegion());
 		generationLabel.setText(Integer.toString(pokemon.getGeneration()) + " GENERATION");
-		heightLabel.setText(height.toString() + " M");
-		weightLabel.setText(weight.toString() + " KG");
+		heightLabel.setText(Double.toString(height) + " M");
+		weightLabel.setText(Double.toString(weight) + " KG");
 		genderLabel.setText("UNKNOWN");
 		//STATS BUTTON NOT READY YET
 		

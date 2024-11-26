@@ -13,8 +13,6 @@ public class ConvertData implements IConvertData{
 			
 			return mapper.readValue(json, javaClass);
 			
-		} catch (JsonMappingException e) {
-			throw new RuntimeException(e);
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}

@@ -12,6 +12,7 @@ import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import java.io.File;
+import java.io.Serial;
 
 public class ChartApplication extends Application {
 
@@ -51,6 +52,7 @@ public class ChartApplication extends Application {
 
 	// inner class
 	public static class StageReadyEvent extends ApplicationEvent {
+		@Serial
 		private static final long serialVersionUID = 1L;
 
 		public StageReadyEvent(Stage stage) {
