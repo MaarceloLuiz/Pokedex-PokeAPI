@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lombok.Getter;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -16,7 +17,8 @@ public class ChartApplication extends Application {
 
 	private ConfigurableApplicationContext applicationContext;
 	
-	private static Scene mainScene;
+	@Getter
+    private static Scene mainScene;
 	
 	private AnchorPane anchorPane;
 
@@ -24,7 +26,7 @@ public class ChartApplication extends Application {
 	public void init() throws Exception {
 		applicationContext = new SpringApplicationBuilder(PokeApiTeamBuilderApplication.class).run();
 
-		FXMLLoader loader = new FXMLLoader(new File("src/main/java/com/marceloluiz/Pokedex/gui/Pokedex.fxml").toURI().toURL());
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/Pokedex/gui/Pokedex.fxml"));
 		loader.setControllerFactory(applicationContext::getBean);
 
 		anchorPane = loader.load();
@@ -40,12 +42,8 @@ public class ChartApplication extends Application {
 		stage.setTitle("PokeAPI JavaFX application");
 		stage.show();
 	}
-	
-	public static Scene getMainScene() {
-		return mainScene;
-	}
 
-	@Override
+    @Override
 	public void stop() throws Exception {
 		applicationContext.close();
 		Platform.exit();

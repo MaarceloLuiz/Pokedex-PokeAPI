@@ -395,7 +395,7 @@ public class PokedexController implements Initializable{
 	@FXML
 	private void onActionStatsBtn(ActionEvent event) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("StatsView.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Pokedex/gui/StatsView.fxml"));
 			Parent root = (Parent) loader.load();
 			
 			statsViewController = loader.getController();
