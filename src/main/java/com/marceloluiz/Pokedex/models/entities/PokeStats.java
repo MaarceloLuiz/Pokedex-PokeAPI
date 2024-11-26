@@ -1,37 +1,18 @@
 package com.marceloluiz.Pokedex.models.entities;
 
+import lombok.*;
+
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class PokeStats {
 	
     private Stats stat;
     private Integer baseStat;
 
-    public PokeStats() {
-    }
-    
-    public PokeStats(Stats stat, int baseStat) {
-		this.stat = stat;
-		this.baseStat = baseStat;
-	}
-    
-
-	public Stats getStat() {
-		return stat;
-	}
-
-	public void setStat(Stats type) {
-		this.stat = type;
-	}
-
-
-	public Integer getBaseStat() {
-		return baseStat;
-	}
-
-	public void setBaseStat(Integer baseStat) {
-		this.baseStat = baseStat;
-	}
-
-	public enum Stats {
+	@Getter
+    public enum Stats {
 
         HP(1),
         ATTACK(2),
@@ -42,17 +23,13 @@ public class PokeStats {
         ACCURACY(7),
         EVASION(8);
 
-        private int id;
+        private final int id;
 
 		private Stats(int id) {
 			this.id = id;
 		}
 
-		public int getId() {
-			return id;
-		}
-		
-		public static Stats getById(Integer id) {
+        public static Stats getById(Integer id) {
 			for(Stats e : Stats.values()) {
 				if(e.id == id) return e;
 			}

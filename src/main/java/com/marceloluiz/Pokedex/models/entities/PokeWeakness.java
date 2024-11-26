@@ -1,5 +1,6 @@
 package com.marceloluiz.Pokedex.models.entities;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -20,17 +21,16 @@ public class PokeWeakness {
 	
 	private static Set<PokeType> getWeaknesses(PokeType type) {
         Set<PokeType> weaknesses = new HashSet<>();
-        for(PokeType weak : type.weak) {
-        	weaknesses.add(weak);
-        }
+//        for(PokeType weak : type.weak) {
+//            weaknesses.add(weak);
+//        }
+        Collections.addAll(weaknesses, type.weak);
         return weaknesses;
     }
 
     private static Set<PokeType> getStrengths(PokeType type) {
         Set<PokeType> strengths = new HashSet<>();
-        for(PokeType strong : type.strong) {
-        	strengths.add(strong);
-        }
+        Collections.addAll(strengths, type.strong);
         return strengths;
     }
 
@@ -46,9 +46,7 @@ public class PokeWeakness {
 
     private static Set<PokeType> getNoEffect(PokeType type) {
         Set<PokeType> noEffect = new HashSet<>();
-        for(PokeType non : type.noEffect) {
-        	noEffect.add(non);
-        }
+        Collections.addAll(noEffect, type.noEffect);
         return noEffect;
     }
 }
