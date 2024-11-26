@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.marceloluiz.Pokedex.models.entities.PokemonPokedex;
 import com.marceloluiz.Pokedex.models.enums.PokeType;
-import com.marceloluiz.Pokedex.services.PokemonPokedexDeserializer;
+import com.marceloluiz.Pokedex.services.mappers.PokemonPokedexDeserializer;
 import com.marceloluiz.Pokedex.util.Alerts;
 import com.marceloluiz.Pokedex.util.Constraints;
 import com.marceloluiz.Pokedex.util.Utils;

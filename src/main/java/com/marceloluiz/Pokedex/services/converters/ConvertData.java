@@ -1,7 +1,6 @@
-package com.marceloluiz.Pokedex.services;
+package com.marceloluiz.Pokedex.services.converters;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ConvertData implements IConvertData{

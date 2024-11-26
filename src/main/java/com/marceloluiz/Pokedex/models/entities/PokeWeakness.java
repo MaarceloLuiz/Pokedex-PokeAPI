@@ -1,4 +1,4 @@
-package com.marceloluiz.Pokedex.models;
+package com.marceloluiz.Pokedex.models.entities;
 
 import java.util.HashSet;
 import java.util.List;

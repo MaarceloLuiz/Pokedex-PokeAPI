@@ -3,7 +3,6 @@ package com.marceloluiz.Pokedex.models.entities;
 import java.util.List;
 import java.util.Set;
 
-import com.marceloluiz.Pokedex.models.PokeStats;
 import com.marceloluiz.Pokedex.models.enums.PokeType;
 
 public class PokemonPokedex {

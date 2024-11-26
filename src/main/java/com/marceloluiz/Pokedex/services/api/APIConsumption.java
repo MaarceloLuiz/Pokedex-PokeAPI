@@ -1,4 +1,4 @@
-package com.marceloluiz.Pokedex.services;
+package com.marceloluiz.Pokedex.services.api;
 
 import java.io.IOException;
 import java.net.URI;

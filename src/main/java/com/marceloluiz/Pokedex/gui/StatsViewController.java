@@ -5,7 +5,7 @@ import java.util.ResourceBundle;
 
 import org.springframework.stereotype.Component;
 
-import com.marceloluiz.Pokedex.models.PokeStats;
+import com.marceloluiz.Pokedex.models.entities.PokeStats;
 import com.marceloluiz.Pokedex.models.entities.PokemonPokedex;
 import com.marceloluiz.Pokedex.util.Utils;
 

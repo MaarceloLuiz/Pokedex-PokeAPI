@@ -1,4 +1,4 @@
-package com.marceloluiz.Pokedex.models;
+package com.marceloluiz.Pokedex.models.entities;
 
 public class PokeStats {
 	

@@ -1,4 +1,4 @@
-package com.marceloluiz.Pokedex.services;
+package com.marceloluiz.Pokedex.services.mappers;
 
 import java.util.*;
 
@@ -6,13 +6,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.marceloluiz.Pokedex.models.PokeData;
-import com.marceloluiz.Pokedex.models.PokeSprite;
-import com.marceloluiz.Pokedex.models.PokeSprite.Sprites;
-import com.marceloluiz.Pokedex.models.PokeStats;
-import com.marceloluiz.Pokedex.models.PokeWeakness;
+import com.marceloluiz.Pokedex.models.entities.PokeData;
+import com.marceloluiz.Pokedex.models.entities.PokeSprite;
+import com.marceloluiz.Pokedex.models.entities.PokeSprite.Sprites;
+import com.marceloluiz.Pokedex.models.entities.PokeStats;
+import com.marceloluiz.Pokedex.models.entities.PokeWeakness;
 import com.marceloluiz.Pokedex.models.entities.PokemonPokedex;
 import com.marceloluiz.Pokedex.models.enums.PokeType;
+import com.marceloluiz.Pokedex.services.api.APIConsumption;
+import com.marceloluiz.Pokedex.services.converters.ConvertData;
 import lombok.Getter;
 
 public class PokemonPokedexDeserializer {
