@@ -11,13 +11,14 @@ public class APIConsumption {
 	
 	public String gettingData(String url) {
 		try {
-			URI adress = URI.create(url);
+			URI address = URI.create(url);
 			
-			var client = HttpClient.newHttpClient();
-			var request = HttpRequest.newBuilder(adress).GET().build(); //HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
-			HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-			
-			return response.body();
+			try(var client = HttpClient.newHttpClient()){
+				var request = HttpRequest.newBuilder(address).GET().build(); //HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
+				HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+
+				return response.body();
+			}
 		}
 		catch(IOException | InterruptedException e) {
 			throw new RuntimeException(e);

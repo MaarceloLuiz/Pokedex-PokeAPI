@@ -9,7 +9,6 @@ import javafx.application.Application;
 public class PokeApiTeamBuilderApplication {
 
 	public static void main(String[] args) {
-		//SpringApplication.run(PokeApiTeamBuilderApplication.class, args);
 		Application.launch(ChartApplication.class, args); // javaFX init
 	}
 

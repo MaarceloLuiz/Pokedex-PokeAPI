@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 import com.marceloluiz.Pokedex.models.entities.PokemonPokedex;
@@ -137,7 +138,8 @@ public class PokedexController implements Initializable{
 	
 	//non JavaFx controls
 	private PokemonPokedexDeserializer pokemonPokedexDeserializer;
-	private PokemonPokedex pokemon;
+	@Getter
+    private PokemonPokedex pokemon;
 	private boolean shinyOn = false;
 	
 	private StatsViewController statsViewController;
@@ -357,7 +359,7 @@ public class PokedexController implements Initializable{
 	@FXML
 	private void onActionSearchBtn() {
 		String idNumber = searchTxt.getText();
-		if(!idNumber.equals("")) {
+		if(!idNumber.isEmpty()) {
 			int number = Integer.parseInt(idNumber);
 			if(number > 0 && number <= 1025) {		
 				pokemonPokedexDeserializer.setJson(number);
@@ -475,9 +477,5 @@ public class PokedexController implements Initializable{
         weaknessesFiveImg.setImage(null);
         weaknessesSixImg.setImage(null);
         weaknessesSevenImg.setImage(null);
-	}
-	
-	public PokemonPokedex getPokemon() {
-		return pokemon;
 	}
 }

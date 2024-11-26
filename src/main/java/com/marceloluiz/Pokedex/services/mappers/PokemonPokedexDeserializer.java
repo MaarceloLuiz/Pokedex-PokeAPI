@@ -1,21 +1,16 @@
 package com.marceloluiz.Pokedex.services.mappers;
 
-import java.util.*;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.marceloluiz.Pokedex.models.entities.PokeData;
-import com.marceloluiz.Pokedex.models.entities.PokeSprite;
+import com.marceloluiz.Pokedex.models.entities.*;
 import com.marceloluiz.Pokedex.models.entities.PokeSprite.Sprites;
-import com.marceloluiz.Pokedex.models.entities.PokeStats;
-import com.marceloluiz.Pokedex.models.entities.PokeWeakness;
-import com.marceloluiz.Pokedex.models.entities.PokemonPokedex;
 import com.marceloluiz.Pokedex.models.enums.PokeType;
 import com.marceloluiz.Pokedex.services.api.APIConsumption;
 import com.marceloluiz.Pokedex.services.converters.ConvertData;
 import lombok.Getter;
+
+import java.util.*;
 
 public class PokemonPokedexDeserializer {
 	@Getter
@@ -29,20 +24,23 @@ public class PokemonPokedexDeserializer {
 	}
 	
 	public PokemonPokedex createPokemon(PokemonPokedex pokemon) {
-		PokeSprite shinySprite = getSprites().get(1);
+		String sprite = getSprites().stream().map(PokeSprite::getUrl).findFirst().orElse(null);
+		String shinySprite = getSprites().get(1).getUrl();
 		
 		for(PokeData data : getBaseData()) {
-			pokemon = new PokemonPokedex(data.getId(),
-					data.getName().toUpperCase(),
-					getSprites().stream().map(PokeSprite::getUrl).findFirst().orElse(null).toString(),
-					shinySprite.getUrl(),
-					getTypes(),
-					getStats(),
-					getWeaknesses(),
-					getGeneration(),
-					data.getHeight(),
-					data.getWeight(),
-					getRegion().toUpperCase()); 
+			pokemon = PokemonPokedex.builder()
+					.id(data.getId())
+					.name(data.getName().toUpperCase())
+					.image(sprite)
+					.shinyImg(shinySprite)
+					.pokeType(getTypes())
+					.stats(getStats())
+					.weaknesses(getWeaknesses())
+					.generation(getGeneration())
+					.height(data.getHeight())
+					.weight(data.getWeight())
+					.region(getRegion().toUpperCase())
+					.build();
 		}
 		return pokemon;
 	}
@@ -151,8 +149,6 @@ public class PokemonPokedexDeserializer {
 			
 			return pokeStats;
 			
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
@@ -178,8 +174,6 @@ public class PokemonPokedexDeserializer {
 			
 			return pokeSprites;
 			
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
