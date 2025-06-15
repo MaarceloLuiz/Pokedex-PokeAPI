@@ -30,7 +30,7 @@
 
 ## How to Run
 
-### Option 1 (Recommended):
+## Option 1 (Recommended):
 ### Windows Users
   - Windows users need VcXsrv to display the JavaFX GUI from the Docker container on their desktop.
   
@@ -92,7 +92,7 @@
 ---
 
 
-### Option 2:
+## Option 2:
 ### Prerequisites
 - Java 8 or higher
 - Maven
@@ -112,7 +112,8 @@ mvn clean install
 ```bash
 mvn javafx:run
 ```
-#### 4. Start Fetching Pokemon Data:
+
+## Start Fetching Pokemon Data:
 - Click on the **blue play button** (indicated in the image below) to begin fetching and displaying Pokemon information.
 
 <img src="https://github.com/user-attachments/assets/4fd272e8-c973-417c-9347-8d6100155c86" alt="Pokedex Interface" width="500">
