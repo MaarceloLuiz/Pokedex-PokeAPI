@@ -32,8 +32,8 @@
 
 ### Option 1 (Recommended):
 ### Windows Users
-- Windows users need VcXsrv to display the JavaFX GUI from the Docker container on their desktop.
-- 
+  - Windows users need VcXsrv to display the JavaFX GUI from the Docker container on their desktop.
+  
 ### Steps
 #### 1. Install [VcXsrv](https://vcxsrv.com/) and start XLaunch:
    - In case you cannot find XLaunch from the Windows Search, you can access your `VcXsrv` installation folder and look for `xlaunch.exe`
@@ -41,16 +41,56 @@
    - Click Finish (you should see an X icon in your system tray - bottom left in your taskbar)
 
 #### 2. Clone the repository:
- ```bash
-git clone https://github.com/MaarceloLuiz/Pokedex-PokeAPI.git
-cd Pokedex-PokeAPI
+   ```bash
+  git clone https://github.com/MaarceloLuiz/Pokedex-PokeAPI.git
+  cd Pokedex-PokeAPI
+  ```
+
+#### 3. **Build and Run:**
+   ```sh
+   docker build -t pokedex-pokeapi .
+   docker run --rm -e DISPLAY=host.docker.internal:0.0 pokedex-pokeapi
+  ```
+
+### macOS Users (Not Tested)
+### Steps
+#### 1. Install [XQuartz](https://www.xquartz.org/) and start it.
+  - Allow network connections in XQuartz preferences (Security tab).
+
+#### 2. In Terminal:
+ ```sh
+  ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
+  xhost + $ip
 ```
 
 #### 3. **Build and Run:**
+   ```sh
+   docker build -t pokedex-pokeapi .
+   docker run --rm -e DISPLAY=$ip:0 pokedex-pokeapi
+  ```
+
+### Linux Users (Not Tested)
+### Steps
+#### 1. Make sure you’re running an X11 session (not Wayland).
+
+#### 2. In Terminal:
  ```sh
- docker build -t pokedex-pokeapi .
- docker run --rm -e DISPLAY=host.docker.internal:0.0 pokedex-pokeapi
+  xhost +local:docker
 ```
+
+#### 3. **Build and Run:**
+   ```sh
+   docker build -t pokedex-pokeapi .
+   docker run --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix pokedex-pokeapi
+  ```
+
+---
+
+### Important Note:
+> **The macOS and Linux instructions have not been tested by the maintainer. If you encounter issues or have improvements, please feel free to [open an issue](https://github.com/MaarceloLuiz/Pokedex-PokeAPI/issues) or submit a pull request to help improve this README. Thank you!**
+
+---
+
 
 ### Option 2:
 ### Prerequisites
