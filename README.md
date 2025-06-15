@@ -29,6 +29,30 @@
 - **PokeAPI**: RESTful API to retrieve Pokemon data.
 
 ## How to Run
+
+### Option 1 (Recommended):
+### Windows Users
+- Windows users need VcXsrv to display the JavaFX GUI from the Docker container on their desktop.
+- 
+### Steps
+#### 1. Install [VcXsrv](https://vcxsrv.com/) and start XLaunch:
+   - In case you cannot find XLaunch from the Windows Search, you can access your `VcXsrv` installation folder and look for `xlaunch.exe`
+   - Choose: Multiple windows, display 0, start no client, disable access control
+   - Click Finish (you should see an X icon in your system tray - bottom left in your taskbar)
+
+#### 2. Clone the repository:
+ ```bash
+git clone https://github.com/MaarceloLuiz/Pokedex-PokeAPI.git
+cd Pokedex-PokeAPI
+```
+
+#### 3. **Build and Run:**
+ ```sh
+ docker build -t pokedex-pokeapi .
+ docker run --rm -e DISPLAY=host.docker.internal:0.0 pokedex-pokeapi
+```
+
+### Option 2:
 ### Prerequisites
 - Java 8 or higher
 - Maven
